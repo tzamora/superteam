@@ -238,7 +238,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5477890, guid: 0cbe9c78e01f1bc4aace61930cf2bb26, type: 2}
       propertyPath: m_AngularDrag
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cbe9c78e01f1bc4aace61930cf2bb26, type: 2}
@@ -436,6 +436,10 @@ Prefab:
       propertyPath: m_Mass
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 5477890, guid: 0cbe9c78e01f1bc4aace61930cf2bb26, type: 2}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cbe9c78e01f1bc4aace61930cf2bb26, type: 2}
   m_IsPrefabParent: 0
@@ -484,6 +488,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5477890, guid: 0cbe9c78e01f1bc4aace61930cf2bb26, type: 2}
       propertyPath: m_Mass
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477890, guid: 0cbe9c78e01f1bc4aace61930cf2bb26, type: 2}
+      propertyPath: m_AngularDrag
       value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -720,7 +728,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5477890, guid: 0cbe9c78e01f1bc4aace61930cf2bb26, type: 2}
       propertyPath: m_AngularDrag
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cbe9c78e01f1bc4aace61930cf2bb26, type: 2}
@@ -864,7 +872,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5477890, guid: 0cbe9c78e01f1bc4aace61930cf2bb26, type: 2}
       propertyPath: m_AngularDrag
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cbe9c78e01f1bc4aace61930cf2bb26, type: 2}
@@ -1301,7 +1309,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5477890, guid: 0cbe9c78e01f1bc4aace61930cf2bb26, type: 2}
       propertyPath: m_AngularDrag
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cbe9c78e01f1bc4aace61930cf2bb26, type: 2}
