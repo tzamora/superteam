@@ -40,8 +40,10 @@ public class CarActor : MonoBehaviour {
 			if(Input.GetAxis ("accelerate") > 0f){
 				
 				yAxis = Mathf.InverseLerp(0f,.3f,accelerateRoutineHandler.timeSinceStart);
-				//print("yaxis wtf: " + yAxis);
-				magnitude = yAxis * currentSpeed;
+
+				print("yaxis: " + yAxis);
+
+				//print("la magnitud deberia de irse a zero: " + magnitude);
 
 				//rigidBody.velocity = (yAxis * (transform.forward) * moveSpeed);
 
@@ -52,9 +54,38 @@ public class CarActor : MonoBehaviour {
 				//transform.Translate(yAxis * Vector3.forward * moveSpeed * Time.deltaTime);
 			}
 			else {
+				print("se fue en el else");
 				accelerateRoutineHandler.self.Restart();
 			}
 		}).Repeat();
+
+		// des acc
+		this.tt ("desaccelerate").If (() => Input.GetAxis ("desaccelerate") > 0f).Loop(delegate(ttHandler accelerateRoutineHandler) {
+
+			if(Input.GetAxis ("desaccelerate") > 0f){
+
+				print("entramos aca al suave");
+
+				yAxis = -1 * Mathf.InverseLerp(0f,.3f,accelerateRoutineHandler.timeSinceStart);
+
+				print("yaxis: " + yAxis);
+
+				//print("la magnitud deberia de irse a zero: " + magnitude);
+
+				//rigidBody.velocity = (yAxis * (transform.forward) * moveSpeed);
+
+				rigidBody.velocity = Vector3.Lerp(rigidBody.velocity, movement, Time.deltaTime);
+
+				//oldY = rigidBody.velocity.y;
+
+				//transform.Translate(yAxis * Vector3.forward * moveSpeed * Time.deltaTime);
+			}
+			else {
+				print("se fue en el else");
+				accelerateRoutineHandler.self.Restart();
+			}
+		}).Repeat();
+
 
 		this.tt ("MoveRoutine").Loop (delegate(ttHandler moveRoutineHandler) {
 
@@ -73,8 +104,6 @@ public class CarActor : MonoBehaviour {
 			}else{
 				currentSpeed = moveSpeed;
 			}
-
-			print("current speed " + currentSpeed);
 
 			movement = transform.forward;//transform.TransformDirection(direction.normalized);
 
@@ -108,6 +137,8 @@ public class CarActor : MonoBehaviour {
 			{
 				rigidBody.velocity = Vector3.Lerp(rigidBody.velocity, Physics.gravity * 5f, Time.deltaTime);	
 			}
+
+			magnitude = yAxis * currentSpeed;
 
 			//print("la magnitud deberia de ser cero : " + magnitude );
 
