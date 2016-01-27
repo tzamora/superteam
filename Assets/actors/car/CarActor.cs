@@ -19,6 +19,8 @@ public class CarActor : MonoBehaviour {
 
 	public Transform floorSensor;
 
+	public AudioClip jumpSound;
+
 	// Use this for initialization
 	void Start () {
 
@@ -159,6 +161,8 @@ public class CarActor : MonoBehaviour {
 				//print("we jump");
 
 				this.rigidBody.AddForce(Vector3.up * jumpForce);
+
+				SoundManager.Get.PlayClip(jumpSound, false);
 
 			}
 

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-
 using matnesis.TeaTime;
 
 public class CameraActor : MonoBehaviour {
