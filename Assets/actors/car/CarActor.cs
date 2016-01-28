@@ -21,12 +21,21 @@ public class CarActor : MonoBehaviour {
 
 	public AudioClip jumpSound;
 
+	public GamepadInControl gamepad;
+
 	// Use this for initialization
 	void Start () {
+
+		SetGamepad ();
 
 		MoveRoutine ();
 
 		JumpRoutine ();
+	}
+
+	void SetGamepad (){
+	
+		gamepad = GetComponent<GamepadInControl> ();
 	}
 
 	void MoveRoutine(){
@@ -35,31 +44,25 @@ public class CarActor : MonoBehaviour {
 		float xAxis = 0f;
 		float yAxis = 0f;
 
-		//Vector3 downMovementVector = new Vector3(0f,-10f,0f);
-		//float oldY = 0f;
-		this.tt ("acc").If (() => Input.GetAxis ("accelerate") > 0f).Loop(delegate(ttHandler accelerateRoutineHandler) {
+		//this.tt ("acc").If (() => Input.GetAxis ("accelerate") > 0f).Loop(delegate(ttHandler accelerateRoutineHandler) {
+		this.tt ("acc").Loop(delegate(ttHandler accelerateRoutineHandler) {
 
-			print ("la concha!");
+			if(gamepad.actions == null){
+				return;
+			}
 
-			if(Input.GetAxis ("accelerate") > 0f){
+			print("cuantas veces se esta llamando esto?" + gamepad.actions.Accelerate);
+
+			if(Input.GetAxis ("accelerate") > 0f || gamepad.actions.Accelerate.IsPressed){
 				
 				yAxis = Mathf.InverseLerp(0f,.3f,accelerateRoutineHandler.timeSinceStart);
-
-				print("yaxis: " + yAxis);
-
-				//print("la magnitud deberia de irse a zero: " + magnitude);
-
-				//rigidBody.velocity = (yAxis * (transform.forward) * moveSpeed);
-
 				rigidBody.velocity = Vector3.Lerp(rigidBody.velocity, movement, Time.deltaTime);
 
-				//oldY = rigidBody.velocity.y;
+			} else {
 
-				//transform.Translate(yAxis * Vector3.forward * moveSpeed * Time.deltaTime);
-			}
-			else {
-				print("se fue en el else");
-				accelerateRoutineHandler.self.Restart();
+				print("el mae se salio");
+				//accelerateRoutineHandler.self.Restart();
+
 			}
 		}).Repeat();
 
