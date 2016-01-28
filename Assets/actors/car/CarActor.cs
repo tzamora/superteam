@@ -39,6 +39,8 @@ public class CarActor : MonoBehaviour {
 		//float oldY = 0f;
 		this.tt ("acc").If (() => Input.GetAxis ("accelerate") > 0f).Loop(delegate(ttHandler accelerateRoutineHandler) {
 
+			print ("la concha!");
+
 			if(Input.GetAxis ("accelerate") > 0f){
 				
 				yAxis = Mathf.InverseLerp(0f,.3f,accelerateRoutineHandler.timeSinceStart);
@@ -158,7 +160,7 @@ public class CarActor : MonoBehaviour {
 
 			if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown ("joystick 1 button 0")){
 
-				//print("we jump");
+				print("we jump");
 
 				this.rigidBody.AddForce(Vector3.up * jumpForce);
 
