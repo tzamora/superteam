@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.9852941, g: 0.917143, b: 0.53611594, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startButton: {fileID: 687974053}
   creditsButton: {fileID: 243562040}
-  buttonSound: {fileID: 0}
+  buttonSound: {fileID: 8300000, guid: 6948de078cd7a4a278f3413758f80f41, type: 3}
 --- !u!1 &243562039
 GameObject:
   m_ObjectHideFlags: 0

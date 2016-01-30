@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+using matnesis.TeaTime;
 
 public class MainTitleViewController : MonoBehaviour {
 
@@ -15,17 +16,19 @@ public class MainTitleViewController : MonoBehaviour {
 	
 		startButton.onClick.AddListener (delegate() {
 
-			SceneManager.LoadScene("test");
-
 			SoundManager.Get.PlayClip(buttonSound, false);
+			this.tt("delay").Add(0.4f,delegate() {
+				SceneManager.LoadScene("history");
+			});
 
 		});
 
 		creditsButton.onClick.AddListener (delegate() {
-
-			SceneManager.LoadScene("credits");
-
+			
 			SoundManager.Get.PlayClip(buttonSound, false);
+			this.tt("delay").Add(0.4f, delegate() {
+				SceneManager.LoadScene("credits");	
+			});
 
 		});
 	}
