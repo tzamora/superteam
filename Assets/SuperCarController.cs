@@ -10,6 +10,7 @@ public class SuperCarController : MonoBehaviour {
 
 	public float motorForce;
 	public float motorForceMultiplier;
+	public float brakeForce;
 	public float steerForce;
 
 	public float jumpForce;
@@ -21,11 +22,13 @@ public class SuperCarController : MonoBehaviour {
 
 	public float wheelRPM = 0f;
 
+	public Transform floorSensor;
+
 
 	// Use this for initialization
 	void Start () {
 
-		MoveRoutine ();
+		PullDownRoutine ();
 
 		JumpRoutine ();
 
@@ -36,6 +39,7 @@ public class SuperCarController : MonoBehaviour {
 	public void FixedUpdate() {
 
 		float motorTorque =  0;
+		float brakeTorque =  0;
 		float steerAngle =  0;
 
 		if (gamepad.actions == null){
@@ -46,30 +50,29 @@ public class SuperCarController : MonoBehaviour {
 
 		if (gamepad.actions.Accelerate.IsPressed) {
 
-			rearLeftWheel.brakeTorque = 0f;
-			rearRightWheel.brakeTorque = 0f;
-			motorTorque = gamepad.actions.Accelerate.Value * motorForce * motorForceMultiplier;
+//			rearLeftWheel.brakeTorque = 0f;
+//			rearRightWheel.brakeTorque = 0f;
+			motorTorque = motorForce * motorForceMultiplier;
 			rearLeftWheel.motorTorque = motorTorque;
 			rearRightWheel.motorTorque = motorTorque;
 
-		} else if (gamepad.actions.Desaccelerate.IsPressed) {
+		} else if (gamepad.actions.Break.IsPressed) {
 
-			rearLeftWheel.brakeTorque = 0f;
-			rearRightWheel.brakeTorque = 0f;
-			motorTorque = (-1 * gamepad.actions.Desaccelerate.Value) * motorForce * motorForceMultiplier;
-			rearLeftWheel.motorTorque = motorTorque;
-			rearRightWheel.motorTorque = motorTorque;
+			brakeTorque = brakeForce;
 
-		} else {
-			rearLeftWheel.brakeTorque = 0.1f;
-			rearRightWheel.brakeTorque = 0.1f;
+			rearLeftWheel.brakeTorque = brakeTorque;
+			rearRightWheel.brakeTorque = brakeTorque;
 		}
+//		else {
+//			rearLeftWheel.brakeTorque = 0.1f;
+//			rearRightWheel.brakeTorque = 0.1f;
+//		}
 
-		if(gamepad.actions.Break.IsPressed){
-			
-			rearLeftWheel.brakeTorque = 5f;
-			rearRightWheel.brakeTorque = 5f;
-		}
+//		if(gamepad.actions.Break.IsPressed){
+//			
+//			rearLeftWheel.brakeTorque = 5f;
+//			rearRightWheel.brakeTorque = 5f;
+//		}
 
 		steerAngle = Mathf.Clamp(gamepad.actions.Movement.X,-0.5f,0.5f) * steerForce;
 		frontLeftWheel.steerAngle = steerAngle;
@@ -77,8 +80,18 @@ public class SuperCarController : MonoBehaviour {
 
 	}
 
-	public void MoveRoutine(){
-		this.tt ("MoveRoutine").Loop (delegate(ttHandler moveRoutineHandler) {
+	public void PullDownRoutine(){
+
+		bool hitting = false;
+
+		this.tt ("PullDownRoutine").Loop (delegate(ttHandler pullDownRoutineHandler) {
+
+			if(!hitting) // not touching floor
+			{
+				rigidBody.velocity = Vector3.Lerp(rigidBody.velocity, Physics.gravity * 5f, Time.deltaTime);
+			}
+
+			Debug.DrawLine(floorSensor.position, floorSensor.position + Vector3.down, Color.red);
 
 		});
 	}
