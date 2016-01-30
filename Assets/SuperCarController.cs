@@ -32,7 +32,9 @@ public class SuperCarController : MonoBehaviour {
 
 	public void MoveRoutine(){
 		this.tt ("MoveRoutine").Loop (delegate(ttHandler moveRoutineHandler) {
-			
+
+			print("vamos a ver si esto pasa");
+
 			float torqueForce =  0;
 
 			if(gamepad.actions.Accelerate.IsPressed){
@@ -40,7 +42,9 @@ public class SuperCarController : MonoBehaviour {
 			}
 
 			frontLeftWheel.motorTorque = torqueForce;
+			frontRightWheel.motorTorque = torqueForce;
 
+			frontLeftWheel.steerAngle = torqueForce;
 			frontRightWheel.motorTorque = torqueForce;
 
 		});
