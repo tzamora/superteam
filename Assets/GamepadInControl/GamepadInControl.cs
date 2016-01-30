@@ -98,8 +98,6 @@ public class GamepadInControl : MonoBehaviour
 	{
 		actions = new GamepadInControlActionSet();
 
-		print ("esta vara me asegura calidad");
-
 		// Movement (Axis + Dpad + WASD + Keys)
 		if (useKeyboard)
 		{

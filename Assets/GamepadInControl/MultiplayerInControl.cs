@@ -63,8 +63,7 @@ public class MultiplayerInControl : MonoBehaviour
 			}
 		})
 		.Wait();
-
-
+		
 		// Look for all the compatible players, except the active device
 		players = FindObjectsOfType<GamepadInControl>().ToList();
 	}
@@ -74,12 +73,11 @@ public class MultiplayerInControl : MonoBehaviour
 	void AssignFreeDevicesToFreePlayers()
 	{
 		// Queries
-		playersWithoutDevice = players
-		                       .Where(p =>
-		                              !p.useKeyboard &&
-		                              (p.inputDevice == null ||
-		                               !InputManager.Devices.Contains(p.inputDevice))).ToList();
+		playersWithoutDevice = 
+			players.Where(p => !p.useKeyboard && (p.inputDevice == null || !InputManager.Devices.Contains (p.inputDevice) )).ToList();
+		
 		busyDevices = players.Where(p => p.inputDevice != null).Select(d => d.inputDevice).ToList();
+
 		freeDevices = InputManager.Devices.Where(d => !busyDevices.Contains(d)).ToList();
 
 

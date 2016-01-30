@@ -7,6 +7,7 @@ public class SuperCarController : MonoBehaviour {
 	public GamepadInControl gamepad;
 
 	public float motorForce;
+	public float steerForce;
 
 	public WheelCollider frontLeftWheel;
 	public WheelCollider frontRightWheel;
@@ -16,8 +17,6 @@ public class SuperCarController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-		SetGamepad ();
 
 		MoveRoutine ();
 
@@ -25,27 +24,25 @@ public class SuperCarController : MonoBehaviour {
 
 	}
 
-	void SetGamepad (){
-
-		gamepad = GetComponent<GamepadInControl> ();
-	}
-
 	public void MoveRoutine(){
 		this.tt ("MoveRoutine").Loop (delegate(ttHandler moveRoutineHandler) {
 
-			print("vamos a ver si esto pasa");
+			float motorTorque =  0;
+			float steerAngle =  0;
 
-			float torqueForce =  0;
-
-			if(gamepad.actions.Accelerate.IsPressed){
-				torqueForce = motorForce;
+			if (gamepad.actions == null){
+				return;
 			}
 
-			frontLeftWheel.motorTorque = torqueForce;
-			frontRightWheel.motorTorque = torqueForce;
+			motorTorque = gamepad.actions.Movement.Y * motorForce;
+			steerAngle = gamepad.actions.Movement.X * steerForce;
 
-			frontLeftWheel.steerAngle = torqueForce;
-			frontRightWheel.motorTorque = torqueForce;
+
+			frontLeftWheel.motorTorque = motorTorque;
+			frontRightWheel.motorTorque = motorTorque;
+
+			frontLeftWheel.steerAngle = steerAngle;
+			frontRightWheel.steerAngle = steerAngle;
 
 		});
 	}
