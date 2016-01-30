@@ -18,11 +18,11 @@ public class GamepadInControlActionSet : PlayerActionSet
 
 	// Basic actions
 	public PlayerAction Jump;
-	public PlayerAction Activate;
 	public PlayerAction Dash;
-	public PlayerAction Attack;
+	public PlayerAction Break;
 
 	public PlayerAction Accelerate;
+	public PlayerAction Desaccelerate;
 
 	// Menu
 	public PlayerAction Command;
@@ -40,11 +40,14 @@ public class GamepadInControlActionSet : PlayerActionSet
 
 		// Actions
 		Jump = CreatePlayerAction("Jump");
-		Activate = CreatePlayerAction("Activate");
+
+		Break = CreatePlayerAction("Break");
+
 		Dash = CreatePlayerAction("Dash");
-		Attack = CreatePlayerAction("Attack");
 
 		Accelerate = CreatePlayerAction("Accelerate");
+
+		Desaccelerate = CreatePlayerAction("desaccelerate");
 
 
 		// Menu
