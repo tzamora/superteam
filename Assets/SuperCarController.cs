@@ -22,6 +22,9 @@ public class SuperCarController : MonoBehaviour {
 	public WheelCollider rearLeftWheel;
 	public WheelCollider rearRightWheel;
 
+	public GameObject frontLeftWheelMesh;
+	public GameObject frontRightWheelMesh;
+
 	public float wheelRPM = 0f;
 
 	public Transform floorSensor;
@@ -87,6 +90,19 @@ public class SuperCarController : MonoBehaviour {
 		steerAngle = Mathf.Clamp(gamepad.actions.Movement.X,-0.5f,0.5f) * steerForce;
 		frontLeftWheel.steerAngle = steerAngle;
 		frontRightWheel.steerAngle = steerAngle;
+
+		// change the visuals of the wheel model
+		frontLeftWheelMesh.transform.localEulerAngles = new Vector3(
+			frontLeftWheelMesh.transform.localEulerAngles.x,
+			frontLeftWheelMesh.transform.localEulerAngles.y,
+			steerAngle
+		);
+
+		frontRightWheelMesh.transform.localEulerAngles = new Vector3(
+			steerAngle,
+			frontRightWheelMesh.transform.localEulerAngles.y,
+			frontRightWheelMesh.transform.localEulerAngles.z
+		);
 
 	}
 
