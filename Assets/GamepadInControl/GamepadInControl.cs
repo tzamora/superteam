@@ -21,16 +21,16 @@ public class GamepadInControl : MonoBehaviour
 	public InputDevice inputDevice; // if null, InControl will use the current active device
 	public int inputDeviceOrder = 0; // InControl device index
 
-	// Actions
-	public Action OnJump;
-	public Action OnActivate;
-	public Action OnDash;
-	public Action OnDashRelease;
-	public Action OnAttack;
-	public Action OnAttackRelease;
-	public Action OnCommand;
-
-	public Action onAccelerate;
+//	// Actions
+//	public Action OnJump;
+//	public Action OnActivate;
+//	public Action OnDash;
+//	public Action OnDashRelease;
+//	public Action OnAttack;
+//	public Action OnAttackRelease;
+//	public Action OnCommand;
+//
+//	public Action onAccelerate;
 
 	public GamepadInControlActionSet actions;
 
@@ -113,11 +113,6 @@ public class GamepadInControl : MonoBehaviour
 			actions.Down.AddDefaultBinding(Key.S);
 			actions.Down.AddDefaultBinding(Key.DownArrow);
 
-			actions.Dash.AddDefaultBinding(Key.P);
-			actions.Attack.AddDefaultBinding(Key.O);
-			// _playerInControlActions.Jump.AddDefaultBinding(Key.Space);
-			// _playerInControlActions.Activate.AddDefaultBinding(Key.E);
-
 			actions.Command.AddDefaultBinding(Key.Escape);
 		}
 		else
@@ -137,14 +132,9 @@ public class GamepadInControl : MonoBehaviour
 			// Actions
 			actions.Accelerate.AddDefaultBinding(InputControlType.RightTrigger);
 
-//			_playerInControlActions.Dash.AddDefaultBinding(InputControlType.LeftBumper);
-//			_playerInControlActions.Dash.AddDefaultBinding(InputControlType.RightBumper);
-//
-//			_playerInControlActions.Attack.AddDefaultBinding(InputControlType.Action3);
-//
+			actions.Desaccelerate.AddDefaultBinding(InputControlType.LeftTrigger);
 
-			// _playerInControlActions.Jump.AddDefaultBinding(InputControlType.Action1);
-			// _playerInControlActions.Activate.AddDefaultBinding(InputControlType.Action2);
+			actions.Break.AddDefaultBinding(InputControlType.Action2);
 
 			// Menu
 			actions.Command.AddDefaultBinding(InputControlType.Command);
@@ -184,19 +174,6 @@ public class GamepadInControl : MonoBehaviour
 		// Actions
 		if (actions.Jump.WasPressed)
 			Debug.Log("Jump " + Time.time);
-
-		if (actions.Activate.WasPressed)
-			Debug.Log("Activate " + Time.time);
-
-		if (actions.Dash.WasPressed)
-			Debug.Log("Dash " + Time.time);
-
-		if (actions.Attack.WasPressed)
-			Debug.Log("Attack " + Time.time);
-
-		if (actions.Attack.WasReleased)
-			Debug.Log("Attack Release" + Time.time);
-
 
 		// Menu
 		if (actions.Command.WasPressed)
