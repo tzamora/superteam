@@ -8,6 +8,8 @@ public class SuperCarController : MonoBehaviour {
 
 	public Rigidbody rigidBody;
 
+	public GameObject trail;
+
 	public float motorForce;
 	public float motorForceMultiplier;
 	public float brakeForce;
@@ -24,11 +26,10 @@ public class SuperCarController : MonoBehaviour {
 
 	public Transform floorSensor;
 
-
 	// Use this for initialization
 	void Start () {
 
-		//PullDownRoutine ();
+		PullDownRoutine ();
 
 		JumpRoutine ();
 
@@ -50,23 +51,32 @@ public class SuperCarController : MonoBehaviour {
 
 		if (gamepad.actions.Accelerate.IsPressed) {
 
-//			rearLeftWheel.brakeTorque = 0f;
-//			rearRightWheel.brakeTorque = 0f;
+			rearLeftWheel.brakeTorque = 0f;
+			rearRightWheel.brakeTorque = 0f;
 			motorTorque = motorForce * motorForceMultiplier;
 			rearLeftWheel.motorTorque = motorTorque;
 			rearRightWheel.motorTorque = motorTorque;
 
-		} else if (gamepad.actions.Break.IsPressed) {
+		} else if (gamepad.actions.Desaccelerate.IsPressed) {
 
-			brakeTorque = brakeForce;
+			rearLeftWheel.brakeTorque = 0f;
+			rearRightWheel.brakeTorque = 0f;
+			motorTorque = -1f * motorForce * motorForceMultiplier;
+			rearLeftWheel.motorTorque = motorTorque;
+			rearRightWheel.motorTorque = motorTorque;
+
+		}
+		else if (gamepad.actions.Break.IsPressed) {
+
+			brakeTorque = -1f * brakeForce;
 
 			rearLeftWheel.brakeTorque = brakeTorque;
 			rearRightWheel.brakeTorque = brakeTorque;
 		}
-//		else {
-//			rearLeftWheel.brakeTorque = 0.1f;
-//			rearRightWheel.brakeTorque = 0.1f;
-//		}
+		else {
+			rearLeftWheel.brakeTorque = 0.1f;
+			rearRightWheel.brakeTorque = 0.1f;
+		}
 
 //		if(gamepad.actions.Break.IsPressed){
 //			
@@ -82,18 +92,22 @@ public class SuperCarController : MonoBehaviour {
 
 	public void PullDownRoutine(){
 
-		bool hitting = false;
-
 		this.tt ("PullDownRoutine").Loop (delegate(ttHandler pullDownRoutineHandler) {
 
-			print("hitting floor " + hitting);
+			transform.rotation = Quaternion.Euler(new Vector3 (0f, transform.eulerAngles.y, 0f));
 
-			if(!hitting) // not touching floor
-			{
-				rigidBody.velocity = Vector3.Lerp(rigidBody.velocity, Physics.gravity * 5f, Time.deltaTime);
-			}
+			RaycastHit hit;
 
-			Debug.DrawLine(floorSensor.position, floorSensor.position + Vector3.down, Color.red);
+//			bool hitting = Physics.Raycast(floorSensor.position,Vector3.down,out hit,1.5f);
+//
+//			print("hitting");
+
+//			if(!hitting) // not touching floor
+//			{
+//				rigidBody.velocity = Vector3.Lerp(rigidBody.velocity, Physics.gravity * 1f, Time.deltaTime);
+//			}
+//
+//			Debug.DrawLine(floorSensor.position, floorSensor.position + Vector3.down, Color.red);
 
 		});
 	}
@@ -122,8 +136,10 @@ public class SuperCarController : MonoBehaviour {
 			if (gamepad.actions.Dash.IsPressed) {
 				print("vamos a ver si saltamos");
 				this.motorForceMultiplier = 3;
+				trail.SetActive(true);
 			}else{
 				this.motorForceMultiplier = 1;
+				trail.SetActive(false);
 			}
 
 
