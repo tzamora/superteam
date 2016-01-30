@@ -14,6 +14,7 @@ public class SuperCarController : MonoBehaviour {
 	public float motorForceMultiplier;
 	public float brakeForce;
 	public float steerForce;
+	public float dashImpulse;
 
 	public float jumpForce;
 
@@ -22,8 +23,13 @@ public class SuperCarController : MonoBehaviour {
 	public WheelCollider rearLeftWheel;
 	public WheelCollider rearRightWheel;
 
+	public GameObject frontLeftWheelPivot;
+	public GameObject frontRightWheelPivot;
+
 	public GameObject frontLeftWheelMesh;
 	public GameObject frontRightWheelMesh;
+
+	public float brakeTorque =  0;
 
 	public float wheelRPM = 0f;
 
@@ -43,10 +49,9 @@ public class SuperCarController : MonoBehaviour {
 	public void FixedUpdate() {
 
 		float motorTorque =  0;
-		float brakeTorque =  0;
 		float steerAngle =  0;
 
-		if (gamepad.actions == null){
+		if (gamepad.actions == null){ 
 			return;
 		}
 
@@ -71,14 +76,20 @@ public class SuperCarController : MonoBehaviour {
 		}
 		else if (gamepad.actions.Break.IsPressed) {
 
-			brakeTorque = -1f * brakeForce;
-
-			rearLeftWheel.brakeTorque = brakeTorque;
-			rearRightWheel.brakeTorque = brakeTorque;
-		}
-		else {
+//			brakeTorque = -1f * brakeForce;
+//
+//			rearLeftWheel.brakeTorque = brakeTorque;
+//			rearRightWheel.brakeTorque = brakeTorque;
 			rearLeftWheel.brakeTorque = 0.1f;
 			rearRightWheel.brakeTorque = 0.1f;
+		}
+		else {
+
+			this.tt ("brakedelay").Add(0.8f, delegate() {
+				rearLeftWheel.brakeTorque = brakeTorque;
+				rearRightWheel.brakeTorque = brakeTorque;	
+			});
+
 		}
 
 //		if(gamepad.actions.Break.IsPressed){
@@ -92,17 +103,21 @@ public class SuperCarController : MonoBehaviour {
 		frontRightWheel.steerAngle = steerAngle;
 
 		// change the visuals of the wheel model
-		frontLeftWheelMesh.transform.localEulerAngles = new Vector3(
-			frontLeftWheelMesh.transform.localEulerAngles.x,
-			frontLeftWheelMesh.transform.localEulerAngles.y,
-			steerAngle
+		frontLeftWheelPivot.transform.localEulerAngles = new Vector3(
+			frontLeftWheelPivot.transform.localEulerAngles.x,
+			steerAngle,
+			frontLeftWheelPivot.transform.localEulerAngles.z
 		);
 
-		frontRightWheelMesh.transform.localEulerAngles = new Vector3(
+		frontRightWheelPivot.transform.localEulerAngles = new Vector3(
+			frontRightWheelPivot.transform.localEulerAngles.x,
 			steerAngle,
-			frontRightWheelMesh.transform.localEulerAngles.y,
-			frontRightWheelMesh.transform.localEulerAngles.z
+			frontRightWheelPivot.transform.localEulerAngles.z
 		);
+
+		frontLeftWheelMesh.transform.Rotate (new Vector3 (-1f * motorTorque * Time.deltaTime, 0f, 0f));
+
+		frontRightWheelMesh.transform.Rotate (new Vector3 (-1f * motorTorque * Time.deltaTime, 0f, 0f));
 
 	}
 
@@ -143,20 +158,35 @@ public class SuperCarController : MonoBehaviour {
 	}
 
 	public void DashRoutine(){
-		this.tt ("DashRoutine").Loop (delegate(ttHandler moveRoutineHandler) {
 
+		this.motorForceMultiplier = 1;
+
+		this.tt ("DashRoutine").Loop (delegate(ttHandler moveRoutineHandler) {
+			
 			if (gamepad.actions == null){
 				return;
 			}
 
-			if (gamepad.actions.Dash.IsPressed) {
-				print("vamos a ver si saltamos");
-				this.motorForceMultiplier = 3;
+			if(gamepad.actions.Dash.WasPressed){
+				print("esto solo va a ocurrir una vez por presionada");
 				trail.SetActive(true);
-			}else{
-				this.motorForceMultiplier = 1;
-				trail.SetActive(false);
+
+				this.rigidBody.AddForce(transform.forward * dashImpulse,ForceMode.Impulse);
+
+				this.tt("brakedash").Add(0.6f, delegate() {
+					this.rigidBody.AddForce(-transform.forward,ForceMode.Impulse);
+					trail.SetActive(false);
+				});
 			}
+
+//			if (gamepad.actions.Dash.IsPressed) {
+//				
+//				this.motorForceMultiplier = 3;
+//				trail.SetActive(true);
+//			}else{
+//				this.motorForceMultiplier = 1;
+//				trail.SetActive(false);
+//			}
 
 
 		});
