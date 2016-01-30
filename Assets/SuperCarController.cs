@@ -28,7 +28,7 @@ public class SuperCarController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		PullDownRoutine ();
+		//PullDownRoutine ();
 
 		JumpRoutine ();
 
@@ -85,6 +85,8 @@ public class SuperCarController : MonoBehaviour {
 		bool hitting = false;
 
 		this.tt ("PullDownRoutine").Loop (delegate(ttHandler pullDownRoutineHandler) {
+
+			print("hitting floor " + hitting);
 
 			if(!hitting) // not touching floor
 			{
