@@ -18,6 +18,7 @@ public class GamepadInControlActionSet : PlayerActionSet
 
 	// Basic actions
 	public PlayerAction Jump;
+	public PlayerAction Dash;
 	public PlayerAction Break;
 
 	public PlayerAction Accelerate;
@@ -41,6 +42,8 @@ public class GamepadInControlActionSet : PlayerActionSet
 		Jump = CreatePlayerAction("Jump");
 
 		Break = CreatePlayerAction("Break");
+
+		Dash = CreatePlayerAction("Dash");
 
 		Accelerate = CreatePlayerAction("Accelerate");
 

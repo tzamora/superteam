@@ -9,7 +9,10 @@ public class SuperCarController : MonoBehaviour {
 	public Rigidbody rigidBody;
 
 	public float motorForce;
+	public float motorForceMultiplier;
 	public float steerForce;
+
+	public float jumpForce;
 
 	public WheelCollider frontLeftWheel;
 	public WheelCollider frontRightWheel;
@@ -24,7 +27,9 @@ public class SuperCarController : MonoBehaviour {
 
 		MoveRoutine ();
 
-		// JumpRoutine ();
+		JumpRoutine ();
+
+		DashRoutine ();
 
 	}
 
@@ -43,7 +48,7 @@ public class SuperCarController : MonoBehaviour {
 
 			rearLeftWheel.brakeTorque = 0f;
 			rearRightWheel.brakeTorque = 0f;
-			motorTorque = gamepad.actions.Accelerate.Value * motorForce;
+			motorTorque = gamepad.actions.Accelerate.Value * motorForce * motorForceMultiplier;
 			rearLeftWheel.motorTorque = motorTorque;
 			rearRightWheel.motorTorque = motorTorque;
 
@@ -51,7 +56,7 @@ public class SuperCarController : MonoBehaviour {
 
 			rearLeftWheel.brakeTorque = 0f;
 			rearRightWheel.brakeTorque = 0f;
-			motorTorque = (-1 * gamepad.actions.Desaccelerate.Value) * motorForce;
+			motorTorque = (-1 * gamepad.actions.Desaccelerate.Value) * motorForce * motorForceMultiplier;
 			rearLeftWheel.motorTorque = motorTorque;
 			rearRightWheel.motorTorque = motorTorque;
 
@@ -75,6 +80,36 @@ public class SuperCarController : MonoBehaviour {
 	public void MoveRoutine(){
 		this.tt ("MoveRoutine").Loop (delegate(ttHandler moveRoutineHandler) {
 
+		});
+	}
+
+	public void JumpRoutine(){
+		this.tt ("JumpRoutine").Loop (delegate(ttHandler moveRoutineHandler) {
+
+			if (gamepad.actions == null){
+				return;
+			}
+
+			if (gamepad.actions.Jump.WasPressed) {
+				this.rigidBody.AddForce(Vector3.up * jumpForce);
+			}
+
+		});
+	}
+
+	public void DashRoutine(){
+		this.tt ("DashRoutine").Loop (delegate(ttHandler moveRoutineHandler) {
+
+			if (gamepad.actions == null){
+				return;
+			}
+
+			if (gamepad.actions.Dash.IsPressed) {
+				print("vamos a ver si saltamos");
+				this.motorForceMultiplier = 3;
+			}else{
+				this.motorForceMultiplier = 1;
+			}
 
 
 		});

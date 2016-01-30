@@ -136,6 +136,10 @@ public class GamepadInControl : MonoBehaviour
 
 			actions.Break.AddDefaultBinding(InputControlType.Action2);
 
+			actions.Jump.AddDefaultBinding(InputControlType.Action1);
+
+			actions.Dash.AddDefaultBinding(InputControlType.Action3);
+
 			// Menu
 			actions.Command.AddDefaultBinding(InputControlType.Command);
 		}
