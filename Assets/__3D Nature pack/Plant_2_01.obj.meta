@@ -1,17 +1,18 @@
 fileFormatVersion: 2
-guid: 4067175e14dbfb54898abf28786d65b1
-timeCreated: 1429607817
+guid: f5cb210c3d9ef3d44b740f889270ad5a
+timeCreated: 1430230529
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Mesh1_Shield_Green_Model
+    100000: Mesh1_Plant_2_Model
     100002: //RootNode
-    400000: Mesh1_Shield_Green_Model
+    400000: Mesh1_Plant_2_Model
     400002: //RootNode
-    2300000: Mesh1_Shield_Green_Model
-    3300000: Mesh1_Shield_Green_Model
-    4300000: Mesh1_Shield_Green_Model
+    2300000: Mesh1_Plant_2_Model
+    3300000: Mesh1_Plant_2_Model
+    4300000: Mesh1_Plant_2_Model
+    6400000: Mesh1_Plant_2_Model
   materials:
     importMaterials: 1
     materialName: 0
@@ -36,7 +37,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 6
+    globalScale: 5
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

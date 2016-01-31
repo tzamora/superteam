@@ -1,17 +1,18 @@
 fileFormatVersion: 2
-guid: 4067175e14dbfb54898abf28786d65b1
-timeCreated: 1429607817
+guid: 0ee56959656c9fc4681e95f9d29c36a3
+timeCreated: 1430230526
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Mesh1_Shield_Green_Model
+    100000: Mesh1_Tent_Poles_Model
     100002: //RootNode
-    400000: Mesh1_Shield_Green_Model
+    400000: Mesh1_Tent_Poles_Model
     400002: //RootNode
-    2300000: Mesh1_Shield_Green_Model
-    3300000: Mesh1_Shield_Green_Model
-    4300000: Mesh1_Shield_Green_Model
+    2300000: Mesh1_Tent_Poles_Model
+    3300000: Mesh1_Tent_Poles_Model
+    4300000: Mesh1_Tent_Poles_Model
+    6400000: Mesh1_Tent_Poles_Model
   materials:
     importMaterials: 1
     materialName: 0
@@ -38,7 +39,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 6
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
