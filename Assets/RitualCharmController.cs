@@ -12,7 +12,7 @@ public class RitualCharmController : MonoBehaviour {
 	public AudioClip itemPickupSound;
 	public AudioClip wrongPickupSound;
 
-	public CharmTypes name;
+	public CharmTypes charmType;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +25,7 @@ public class RitualCharmController : MonoBehaviour {
 
 		if(superCar != null){
 
-			if(superCar.charmsToSearch.Contains(this.name))
+			if(superCar.charmsToSearch.Contains(this.charmType))
 
 			SoundManager.Get.PlayClip (itemPickupSound, false);
 

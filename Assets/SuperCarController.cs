@@ -33,7 +33,7 @@ public class SuperCarController : MonoBehaviour {
 	public GameObject frontLeftWheelMesh;
 	public GameObject frontRightWheelMesh;
 
-	public List<string> charmsToSearch;
+	public List<CharmTypes> charmsToSearch;
 
 	public float brakeTorque =  0;
 
