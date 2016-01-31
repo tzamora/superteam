@@ -89,12 +89,12 @@ public class SuperCarController : MonoBehaviour {
 //
 //			rearLeftWheel.brakeTorque = brakeTorque;
 //			rearRightWheel.brakeTorque = brakeTorque;
-			rearLeftWheel.brakeTorque = 0.1f;
-			rearRightWheel.brakeTorque = 0.1f;
+			rearLeftWheel.brakeTorque = 5f;
+			rearRightWheel.brakeTorque = 5f;
 		}
 		else {
 
-			this.tt ("brakedelay").Add(0.8f, delegate() {
+			this.tt ("brakedelay").Add(0.5f, delegate() {
 				rearLeftWheel.brakeTorque = brakeTorque;
 				rearRightWheel.brakeTorque = brakeTorque;	
 			});
@@ -180,7 +180,7 @@ public class SuperCarController : MonoBehaviour {
 			if(gamepad.actions.Dash.IsPressed){
 				print("esto solo va a ocurrir una vez por presionada");
 				trail.SetActive(true);
-				motorForceMultiplier = 3f;
+				motorForceMultiplier = mult;
 
 
 				//this.rigidBody.AddForce(transform.forward * dashImpulse,ForceMode.Impulse);
