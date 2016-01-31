@@ -177,16 +177,21 @@ public class SuperCarController : MonoBehaviour {
 				return;
 			}
 
-			if(gamepad.actions.Dash.WasPressed){
+			if(gamepad.actions.Dash.IsPressed){
 				print("esto solo va a ocurrir una vez por presionada");
 				trail.SetActive(true);
+				motorForceMultiplier = 3f;
 
-				this.rigidBody.AddForce(transform.forward * dashImpulse,ForceMode.Impulse);
 
-				this.tt("brakedash").Add(0.6f, delegate() {
-					this.rigidBody.AddForce(-transform.forward,ForceMode.Impulse);
-					trail.SetActive(false);
-				});
+				//this.rigidBody.AddForce(transform.forward * dashImpulse,ForceMode.Impulse);
+
+//				this.tt("brakedash").Add(0.6f, delegate() {
+//					this.rigidBody.AddForce(-transform.forward,ForceMode.Impulse);
+//					trail.SetActive(false);
+//				});
+			}else{
+				motorForceMultiplier = 1f;
+				trail.SetActive(false);
 			}
 
 		});
@@ -198,16 +203,10 @@ public class SuperCarController : MonoBehaviour {
 
 		if (charmsToSearch.Count <= 0) {
 
-			// show text
-
-			// show ending (which is a new scene with the winner elevating to the sky going to the super charm)
-
 			// invoke the ending
 			SceneManager.LoadScene ("main-title");
 
 		} else {
-		
-
 
 		}
 
