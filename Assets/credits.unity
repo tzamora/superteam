@@ -153,7 +153,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Kenney Game Assets
 
-    dontgetlostinheaven'
+    Music: Dont Get Lost in Heaven'
 --- !u!222 &28316245
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -783,6 +783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f193d817f6b462b8b54c96dc26e0b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backButon: {fileID: 1703445199}
 --- !u!114 &2011827470
 MonoBehaviour:
   m_ObjectHideFlags: 0
