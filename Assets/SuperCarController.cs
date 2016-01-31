@@ -90,12 +90,12 @@ public class SuperCarController : MonoBehaviour {
 //
 //			rearLeftWheel.brakeTorque = brakeTorque;
 //			rearRightWheel.brakeTorque = brakeTorque;
-			rearLeftWheel.brakeTorque = 0.1f;
-			rearRightWheel.brakeTorque = 0.1f;
+			rearLeftWheel.brakeTorque = 5f;
+			rearRightWheel.brakeTorque = 5f;
 		}
 		else {
 
-			this.tt ("brakedelay").Add(0.8f, delegate() {
+			this.tt ("brakedelay").Add(0.5f, delegate() {
 				rearLeftWheel.brakeTorque = brakeTorque;
 				rearRightWheel.brakeTorque = brakeTorque;	
 			});
