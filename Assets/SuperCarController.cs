@@ -18,6 +18,10 @@ public class SuperCarController : MonoBehaviour {
 
 	public float jumpForce;
 
+	public AudioClip itemPickupSound;
+	public AudioClip jumpSound;
+	public AudioClip motorSound;
+
 	public WheelCollider frontLeftWheel;
 	public WheelCollider frontRightWheel;
 	public WheelCollider rearLeftWheel;
@@ -151,6 +155,7 @@ public class SuperCarController : MonoBehaviour {
 			}
 
 			if (gamepad.actions.Jump.WasPressed) {
+				SoundManager.Get.PlayClip(jumpSound, false);
 				this.rigidBody.AddForce(Vector3.up * jumpForce);
 			}
 
@@ -190,5 +195,17 @@ public class SuperCarController : MonoBehaviour {
 
 
 		});
+	}
+		
+	void OnTriggerEnter(Collider other) {
+	
+		RitualCharmController ritualCharm = other.GetComponent<RitualCharmController> ();
+
+		if(ritualCharm != null){
+
+			SoundManager.Get.PlayClip (itemPickupSound, false);
+
+			Destroy(ritualCharm);
+		}
 	}
 }
