@@ -52,7 +52,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &125622
 GameObject:
   m_ObjectHideFlags: 1
@@ -198,7 +198,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164124}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11, y: 28.3, z: -16.6}
+  m_LocalPosition: {x: -11, y: 28.3, z: -22.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 443426}
@@ -238,11 +238,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100058}
-  m_LocalRotation: {x: -0.47739586, y: -0.5216257, z: -0.5216256, w: 0.47739577}
-  m_LocalPosition: {x: 0, y: 1.453247, z: -0}
-  m_LocalScale: {x: 0.24999996, y: 0.24999997, z: 5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7499997, y: 0.7499998, z: 1}
   m_Children: []
-  m_Father: {fileID: 494264}
+  m_Father: {fileID: 480388}
   m_RootOrder: 1
 --- !u!4 &462332
 Transform:
@@ -263,7 +263,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188544}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: -1.4000033, z: 0}
+  m_LocalPosition: {x: 0, y: -1.4, z: -1.35}
   m_LocalScale: {x: 0.25, y: 0.25000003, z: 5}
   m_Children: []
   m_Father: {fileID: 494264}
@@ -291,6 +291,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 494264}
+  - {fileID: 456826}
   m_Father: {fileID: 410394}
   m_RootOrder: 2
 --- !u!4 &487090
@@ -326,11 +327,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116088}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0, z: -2.150648}
-  m_LocalScale: {x: 4, y: 0.20000003, z: 4}
+  m_LocalPosition: {x: 0, y: 0.35, z: 0}
+  m_LocalScale: {x: 3, y: 0.20000003, z: 3}
   m_Children:
   - {fileID: 469860}
-  - {fileID: 456826}
   m_Father: {fileID: 480388}
   m_RootOrder: 0
 --- !u!23 &2328138
