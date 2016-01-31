@@ -49,12 +49,12 @@ public class RitualCharmController : MonoBehaviour {
 		SuperCarController superCar = other.GetComponent<SuperCarController> ();
 
 		if(superCar != null){
-
+			superCar.addCharm(this.charmType);
 			if (superCar.charmsToSearch.Where(c=>c.charmType == this.charmType).Any()) {
 				SoundManager.Get.PlayClip (itemPickupSound, false);
-				superCar.addCharm(this.charmType);
 			} else {
 				SoundManager.Get.PlayClip (wrongPickupSound, false);
+
 				superCar.gui.showMessage("Wrong thou you fool!!");
 			}
 

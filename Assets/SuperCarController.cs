@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using matnesis.TeaTime;
 using UnityEngine.SceneManagement;
+using System.Linq;
+using Exploder;
 
 public class SuperCarController : MonoBehaviour {
 
@@ -23,6 +25,7 @@ public class SuperCarController : MonoBehaviour {
 
 	public AudioClip jumpSound;
 	public AudioClip motorSound;
+	public bool motorSoundActive;
 
 	public WheelCollider frontLeftWheel;
 	public WheelCollider frontRightWheel;
@@ -36,6 +39,8 @@ public class SuperCarController : MonoBehaviour {
 	public GameObject frontRightWheelMesh;
 
 	public List<RitualCharmController> charmsToSearch;
+	public int charmsFound = 0;
+	public int wrongCharms = 0;
 
 	public float brakeTorque =  0;
 
@@ -44,6 +49,8 @@ public class SuperCarController : MonoBehaviour {
 	public Transform floorSensor;
 
 	public PlayerGUIController gui;
+
+	public ExploderObject body;
 
 	// Use this for initialization
 	void Start () {
@@ -139,6 +146,23 @@ public class SuperCarController : MonoBehaviour {
 
 		frontRightWheelMesh.transform.Rotate (new Vector3 (-1f * motorTorque * Time.deltaTime, 0f, 0f));
 
+		//print ("RPM " + rearLeftWheel.rpm);
+
+		if (rearLeftWheel.rpm > 1f) {
+
+//			if (!motorSoundActive) {
+//				motorSoundActive = true;
+//				SoundManager.Get.PlayClip (motorSound, true);
+//				SoundManager.Get.SetVolume (motorSound, 0.3f);
+//			}
+
+		} else {
+//			if (motorSoundActive) {
+//				motorSoundActive = false;
+//				SoundManager.Get.StopClip (motorSound);
+//			}
+		}
+
 	}
 
 	public void PullDownRoutine(){
@@ -192,6 +216,7 @@ public class SuperCarController : MonoBehaviour {
 				print("esto solo va a ocurrir una vez por presionada");
 				trail.SetActive(true);
 				motorForceMultiplier = motorForceMultiplierVariable;
+				SoundManager.Get.ChangePitch(motorSound, 2f);
 
 
 				//this.rigidBody.AddForce(transform.forward * dashImpulse,ForceMode.Impulse);
@@ -203,6 +228,7 @@ public class SuperCarController : MonoBehaviour {
 			}else{
 				motorForceMultiplier = 1f;
 				trail.SetActive(false);
+				SoundManager.Get.ChangePitch(motorSound, 1f);
 			}
 
 		});
@@ -210,12 +236,26 @@ public class SuperCarController : MonoBehaviour {
 
 	public void addCharm(CharmTypes charmType){
 
-		if (charmsToSearch.Count <= 0) {
+		if (charmsToSearch.Where (c => c.charmType == charmType).Any ()) {
+			gui.ActivateRitualCharm (charmType);	
+			charmsFound++;
+		} else {
+			wrongCharms++;
+		}
+
+		if (charmsFound >= charmsToSearch.Count) {
 
 			// invoke the ending
 			SceneManager.LoadScene ("main-title");
 
-		} else {
+		}
+
+		if (wrongCharms >= charmsToSearch.Count) {
+
+			body.ExplodeRadius ();
+
+			// invoke the ending
+			//Destroy(this.gameObject);
 
 		}
 

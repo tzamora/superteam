@@ -19,6 +19,24 @@ public class PlayerGUIController : MonoBehaviour {
 
 	}
 
+	public void ActivateRitualCharm(CharmTypes charmtype){
+
+		for (int i = 0; i < charmPlaceholders.Count; i++) {
+			foreach (Transform child in charmPlaceholders[i].transform)
+			{
+				if (child.gameObject.name == charmtype.ToString()) {
+
+					// Destroy
+					Destroy(child.gameObject);
+
+
+					//instantiate a particle
+					//GameObject.Instantiate ();
+				}
+			}
+		}
+	}
+
 	public void addRitualCharms(List<RitualCharmController> charms){
 
 
@@ -30,12 +48,17 @@ public class PlayerGUIController : MonoBehaviour {
 			clone.transform.parent = charmPlaceholders[counter].transform;
 			clone.transform.localRotation = Quaternion.identity;
 			clone.transform.localPosition = Vector3.zero;
+			//clone.GetComponent<MeshRenderer> ().material.color = new Color (1f, 1f, 1f, 0.4f);
 			//clone.transform.localScale = new Vector3(6f,6f,6f);
-			//clone.transform.localEulerAngles = new Vector3 (0f, 90f, 0f);
+			//clone.transform.localEulerAngles = new Vector3 (0f, 90f, 0f);\
+			clone.name = charm.charmType.ToString();
+			//clone.AddComponent<Exploder> ();
 
 			this.tt ().Loop (delegate(ttHandler obj) {
 			
-				clone.transform.Rotate(Vector3.up * 17f * Time.deltaTime);
+				if(clone!=null){
+					clone.transform.Rotate(Vector3.up * 17f * Time.deltaTime);	
+				}
 
 			});
 
