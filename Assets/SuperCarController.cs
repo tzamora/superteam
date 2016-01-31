@@ -43,6 +43,8 @@ public class SuperCarController : MonoBehaviour {
 	public GameObject rearLeftWheelMesh;
 	public GameObject rearRightWheelMesh;
 
+	public GameObject winParticle;
+
 	public List<RitualCharmController> charmsToSearch;
 	public int charmsFound = 0;
 	public int wrongCharms = 0;
@@ -254,8 +256,22 @@ public class SuperCarController : MonoBehaviour {
 
 		if (charmsFound >= charmsToSearch.Count) {
 
+			//this.tt("showMessage")
+			gui.showMessage("Ritual Completed");
+
 			// invoke the ending
-			SceneManager.LoadScene ("main-title");
+			winParticle.SetActive(true);
+
+			// kill the others
+			List<GamepadInControl> cars = FindObjectsOfType<GamepadInControl>().ToList();
+
+			foreach(GamepadInControl car in cars){
+
+				if (car != this.gamepad) {
+					car.GetComponent<SuperCarController> ().body.ExplodeRadius ();
+				}
+
+			}
 
 		}
 
