@@ -14,6 +14,7 @@ public class SuperCarController : MonoBehaviour {
 
 	public float motorForce;
 	public float motorForceMultiplier;
+	public float motorForceMultiplierVariable=3f;
 	public float brakeForce;
 	public float steerForce;
 	public float dashImpulse;
@@ -180,7 +181,7 @@ public class SuperCarController : MonoBehaviour {
 			if(gamepad.actions.Dash.IsPressed){
 				print("esto solo va a ocurrir una vez por presionada");
 				trail.SetActive(true);
-				motorForceMultiplier = 3f;
+				motorForceMultiplier = motorForceMultiplierVariable;
 
 
 				//this.rigidBody.AddForce(transform.forward * dashImpulse,ForceMode.Impulse);
