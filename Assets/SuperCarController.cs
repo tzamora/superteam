@@ -35,7 +35,7 @@ public class SuperCarController : MonoBehaviour {
 	public GameObject frontLeftWheelMesh;
 	public GameObject frontRightWheelMesh;
 
-	public List<CharmTypes> charmsToSearch;
+	public List<RitualCharmController> charmsToSearch;
 
 	public float brakeTorque =  0;
 
@@ -48,11 +48,21 @@ public class SuperCarController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		LoadRitualCharms ();
+
 		PullDownRoutine ();
 
 		JumpRoutine ();
 
 		DashRoutine ();
+
+	}
+
+	public void LoadRitualCharms(){
+
+		charmsToSearch = SuperTeamGameContext.RitualCharmManager.getRandomCharms (3);
+
+		gui.addRitualCharms (charmsToSearch);
 
 	}
 
@@ -199,8 +209,6 @@ public class SuperCarController : MonoBehaviour {
 	}
 
 	public void addCharm(CharmTypes charmType){
-
-		this.charmsToSearch.Remove (charmType);
 
 		if (charmsToSearch.Count <= 0) {
 

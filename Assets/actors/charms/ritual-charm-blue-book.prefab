@@ -349,7 +349,8 @@ MonoBehaviour:
   itemPickupSound: {fileID: 8300000, guid: 873428f3563594257ad8c6ac10edd23d, type: 3}
   wrongPickupSound: {fileID: 8300000, guid: d00410747c6654314b8148c10259ffd4, type: 3}
   charmBody: {fileID: 168890}
-  charmType: 1
+  charmObject: {fileID: 183680}
+  charmType: 2
 --- !u!114 &11446826
 MonoBehaviour:
   m_ObjectHideFlags: 1

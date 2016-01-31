@@ -6,6 +6,22 @@ using System.Collections.Generic;
 
 public class SuperTeamGameContext : MonoSingleton<SuperTeamGameContext>
 {
+
+	private static RitualCharmManager _ritualCharmManager;
+	
+	public static RitualCharmManager RitualCharmManager {
+		get{
+			if(_ritualCharmManager == null){
+
+				_ritualCharmManager = FindObjectOfType(typeof(RitualCharmManager)) as RitualCharmManager;
+
+				DontDestroyOnLoad(_ritualCharmManager);
+			}
+
+			return _ritualCharmManager;
+		}
+	}
+
 //	private static LevelGUIController _levelGUI;
 //
 //	public static LevelGUIController LevelGUI {

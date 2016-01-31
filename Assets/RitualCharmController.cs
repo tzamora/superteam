@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 using matnesis.TeaTime;
+using System.Linq;
 
 public enum CharmTypes{
-	DeadBook,
+	GreenBook,
 	HyperHorn,
-	UltraCharm
+	BlueBook,
+	RareSkull,
+	RubyPentagram,
+	RebornEgg,
+	Pentagram,
+	HybrydPotion
 }
 
 public class RitualCharmController : MonoBehaviour {
@@ -13,6 +19,7 @@ public class RitualCharmController : MonoBehaviour {
 	public AudioClip itemPickupSound;
 	public AudioClip wrongPickupSound;
 	public GameObject charmBody;
+	public GameObject charmObject;
 	public CharmTypes charmType;
 
 	// Use this for initialization
@@ -43,14 +50,13 @@ public class RitualCharmController : MonoBehaviour {
 
 		if(superCar != null){
 
-			if (superCar.charmsToSearch.Contains (this.charmType)) {
+			if (superCar.charmsToSearch.Where(c=>c.charmType == this.charmType).Any()) {
 				SoundManager.Get.PlayClip (itemPickupSound, false);
 				superCar.addCharm(this.charmType);
 			} else {
+				SoundManager.Get.PlayClip (wrongPickupSound, false);
 				superCar.gui.showMessage("Wrong thou you fool!!");
 			}
-
-
 
 			Destroy(this.gameObject);
 		}
