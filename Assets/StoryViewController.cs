@@ -16,7 +16,7 @@ public class StoryViewController : MonoBehaviour {
 
 			SoundManager.Get.PlayClip(buttonSound, false);
 			this.tt("delay").Add(0.4f, delegate() {
-				SceneManager.LoadScene("main-game");
+				SceneManager.LoadScene("main-gameBackUp");
 			});
 
 		});
