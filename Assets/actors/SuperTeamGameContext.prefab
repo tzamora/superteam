@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &147712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 423022}
+  - 114: {fileID: 11451324}
+  m_Layer: 0
+  m_Name: RitualCharmManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &181454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 459494}
+  - 114: {fileID: 11429608}
+  m_Layer: 0
+  m_Name: MultiplayerInControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &198430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 438698}
+  - 114: {fileID: 11414042}
+  m_Layer: 0
+  m_Name: SuperTeamGameContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &423022
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147712}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 438698}
+  m_RootOrder: 1
+--- !u!4 &438698
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 26.81, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 459494}
+  - {fileID: 423022}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &459494
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181454}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.34192815, y: -27.05695, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 438698}
+  m_RootOrder: 0
+--- !u!114 &11414042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299974370b2044cba8da526ba094c341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11429608
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df45f7e76de7b4ea2b677b3d412347b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: []
+  deviceCount: 0
+  playersWithoutDevice: []
+  keyboardPlayer: {fileID: 0}
+--- !u!114 &11451324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f016a29c95264a0baaf528bfd0f565e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ritualCharms:
+  - {fileID: 11441680, guid: c836273335dbe40d6b3ec2ec885361cd, type: 2}
+  - {fileID: 11465270, guid: 6dfc9d57563684e70bcba0d5865a0fd5, type: 2}
+  - {fileID: 11418040, guid: 042334419be804e619dca06135e5ac06, type: 2}
+  - {fileID: 11407406, guid: 149a0fd23a7d74a89952a445b55f45e7, type: 2}
+  - {fileID: 11446184, guid: b011dabef894649759117af77b078333, type: 2}
+  - {fileID: 11418516, guid: e4dfdf90e9de646349b9c695e99f47c6, type: 2}
+  - {fileID: 11413450, guid: 057ff2ff828e44dad97d7713b04aaf2c, type: 2}
+  - {fileID: 11480162, guid: 17a36b669f7044d96b6b16b68bddccf3, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 198430}
+  m_IsPrefabParent: 1
