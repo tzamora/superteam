@@ -55,6 +55,8 @@ public class SuperCarController : MonoBehaviour {
 
 	public Transform floorSensor;
 
+	public Transform respawnPosition;
+
 	public PlayerGUIController gui;
 
 	public ExploderObject body;
@@ -81,6 +83,10 @@ public class SuperCarController : MonoBehaviour {
 	}
 
 	public void FixedUpdate() {
+
+		if (Input.GetKeyDown (KeyCode.T)) {
+			transform.position = respawnPosition.position;
+		}
 
 		float motorTorque =  0;
 		float steerAngle =  0;

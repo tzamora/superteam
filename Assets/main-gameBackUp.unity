@@ -33446,6 +33446,10 @@ Prefab:
       propertyPath: m_ForwardFriction.m_Stiffness
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 11472506, guid: 3b80d0ffff5a94fc19c2237c75946e47, type: 2}
+      propertyPath: respawnPosition
+      value: 
+      objectReference: {fileID: 1511511300}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b80d0ffff5a94fc19c2237c75946e47, type: 2}
   m_IsPrefabParent: 0
