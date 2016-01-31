@@ -6,26 +6,35 @@ using UnityEngine.UI;
 public class PlayerGUIController : MonoBehaviour {
 
 	public Text playerMessage;
+	public GameObject messagePanel;
 
 	// Use this for initialization
 	void Start () {
 
 	}
 
-	void showMessage(string message){
+	public void showMessage(string message){
 	
-		playerMessage.canvasRenderer.SetAlpha (0);
+		playerMessage.color = new Color (1f, 1f, 1f, 0f);
 
 		playerMessage.text = message;
 
+		messagePanel.SetActive (true);
+
+		Image img = messagePanel.GetComponent<Image>();
+
 		this.tt ("FadeInRoutine").Loop (2f, delegate(ttHandler handler) {
-		
-			playerMessage.canvasRenderer.SetAlpha (handler.t);
+			
+			playerMessage.color = new Color (1f, 1f, 1f, handler.t);
 
 		}).Add(4f).Loop(2f, delegate(ttHandler handler) {
+			
+			playerMessage.color = new Color (1f, 1f, 1f, 1f - handler.t);
 
-			playerMessage.canvasRenderer.SetAlpha (1 - handler.t);
+			img.color = new Color (1f, 1f, 1f, 1f - handler.t);
 
+		}).Add(delegate() {
+			messagePanel.SetActive (false);
 		});
 
 	}

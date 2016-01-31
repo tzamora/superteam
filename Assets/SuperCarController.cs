@@ -205,8 +205,6 @@ public class SuperCarController : MonoBehaviour {
 			// invoke the ending
 			SceneManager.LoadScene ("main-title");
 
-			//
-
 		} else {
 		
 
