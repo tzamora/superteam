@@ -21,16 +21,6 @@ public class GamepadInControl : MonoBehaviour
 	public InputDevice inputDevice; // if null, InControl will use the current active device
 	public int inputDeviceOrder = 0; // InControl device index
 
-//	// Actions
-//	public Action OnJump;
-//	public Action OnActivate;
-//	public Action OnDash;
-//	public Action OnDashRelease;
-//	public Action OnAttack;
-//	public Action OnAttackRelease;
-//	public Action OnCommand;
-//
-//	public Action onAccelerate;
 
 	public GamepadInControlActionSet actions;
 
@@ -50,50 +40,6 @@ public class GamepadInControl : MonoBehaviour
 			SetInputDevice(inputDevice, -1);
 	}
 
-
-//	void Update()
-//	{
-//		if (!update)
-//			return;
-//
-//		if (actions == null)
-//			return;
-//
-//
-//		// My Actions
-//		if (actions.Dash.WasPressed && OnDash != null){
-//			OnDash();
-//		}
-//
-//		// Actions
-//		if (actions.Jump.WasPressed && OnJump != null)
-//			OnJump();
-//
-//		if (actions.Activate.WasPressed && OnActivate != null)
-//			OnActivate();
-//
-//		if (actions.Dash.WasPressed && OnDash != null)
-//			OnDash();
-//
-//		if (actions.Dash.WasReleased && OnDashRelease != null)
-//			OnDashRelease();
-//
-//		if (actions.Attack.WasPressed && OnAttack != null)
-//			OnAttack();
-//
-//		if (actions.Attack.WasReleased && OnAttackRelease != null)
-//			OnAttackRelease();
-//
-//
-//		// Main menu
-//		if (actions.Command.WasPressed && OnCommand != null)
-//			OnCommand();
-//
-//
-//		// QuickInputTest();
-//	}
-
-
 	public void SetInputDevice(InputDevice newInputDevice, int order)
 	{
 		actions = new GamepadInControlActionSet();
@@ -110,10 +56,23 @@ public class GamepadInControl : MonoBehaviour
 			actions.Accelerate.AddDefaultBinding(Key.W);
 			actions.Accelerate.AddDefaultBinding(Key.UpArrow);
 
-			actions.Down.AddDefaultBinding(Key.S);
-			actions.Down.AddDefaultBinding(Key.DownArrow);
+			actions.Desaccelerate.AddDefaultBinding(Key.S);
+			actions.Desaccelerate.AddDefaultBinding(Key.DownArrow);
+
+
+
 
 			actions.Command.AddDefaultBinding(Key.Escape);
+
+
+
+			// Actions
+			actions.Break.AddDefaultBinding(Key.C);
+
+			actions.Jump.AddDefaultBinding(Key.Space);
+
+			actions.Dash.AddDefaultBinding(Key.F);
+
 		}
 		else
 		{
