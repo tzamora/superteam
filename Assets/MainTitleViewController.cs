@@ -9,10 +9,14 @@ public class MainTitleViewController : MonoBehaviour {
 	public Button startButton;
 	public Button creditsButton;
 
+
 	public AudioClip buttonSound;
+	public AudioClip song;
 
 	// Use this for initialization
 	void Start () {
+
+		SoundManager.Get.PlayClip (song, true);
 	
 		startButton.onClick.AddListener (delegate() {
 
