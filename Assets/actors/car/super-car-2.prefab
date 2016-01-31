@@ -258,6 +258,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 479488}
   - 114: {fileID: 11459790}
+  - 114: {fileID: 11477834}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -654,7 +655,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.64, y: -0.64, z: 0.729}
+  m_LocalPosition: {x: -0.8, y: -0.64, z: 1.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488976}
@@ -667,7 +668,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.64, y: -0.64, z: -0.829}
+  m_LocalPosition: {x: 0.8, y: -0.59, z: -1.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 484944}
@@ -692,7 +693,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.64, y: -0.64, z: -0.829}
+  m_LocalPosition: {x: -0.8, y: -0.59, z: -1.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 420804}
@@ -705,8 +706,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2067741, y: 0.85, z: 2.4551308}
+  m_LocalPosition: {x: 0, y: 0, z: -0.189}
+  m_LocalScale: {x: 1.2708452, y: 0.85, z: 2.6423578}
   m_Children: []
   m_Father: {fileID: 479488}
   m_RootOrder: 0
@@ -816,8 +817,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125176}
   m_LocalRotation: {x: 0.26589197, y: 0.000000029802322, z: 0, w: 0.96400285}
-  m_LocalPosition: {x: 0, y: -0.09899902, z: 1.279}
-  m_LocalScale: {x: 0.7374399, y: 0.41456214, z: 0.73866844}
+  m_LocalPosition: {x: -0.002, y: -0.09899902, z: 1.256}
+  m_LocalScale: {x: 0.7374399, y: 0.5427944, z: 0.73866844}
   m_Children: []
   m_Father: {fileID: 479488}
   m_RootOrder: 1
@@ -869,8 +870,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177294}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.2, y: -1.2, z: -265}
+  m_LocalRotation: {x: 0, y: -0.7380248, z: 0, w: 0.67477363}
+  m_LocalPosition: {x: -9.707317, y: 30.7, z: -40.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 449004}
@@ -914,7 +915,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.64, y: -0.64, z: 0.72899985}
+  m_LocalPosition: {x: 0.8, y: -0.64, z: 1.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 448334}
@@ -1072,7 +1073,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135714}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: 0, y: 0.3199997, z: -1}
+  m_LocalPosition: {x: -0.042, y: 0.3199997, z: -1.469}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 494580}
@@ -1098,7 +1099,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalPosition: {x: -0.41, y: 0.2, z: 0}
   m_LocalScale: {x: 0.42833942, y: 0.2296909, z: 1.5693125}
   m_Children: []
   m_Father: {fileID: 491966}
@@ -1116,9 +1117,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.5
+    y: 0
     width: 1
-    height: 0.5
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1903,7 +1904,8 @@ MonoBehaviour:
   gamepad: {fileID: 11450116}
   rigidBody: {fileID: 5488668}
   trail: {fileID: 149124}
-  motorForce: 1250
+  carCamera: {fileID: 2002952}
+  motorForce: 2000
   motorForceMultiplier: 2
   motorForceMultiplierVariable: 3
   brakeForce: 5
@@ -1921,6 +1923,8 @@ MonoBehaviour:
   frontRightWheelPivot: {fileID: 174100}
   frontLeftWheelMesh: {fileID: 199276}
   frontRightWheelMesh: {fileID: 104930}
+  rearLeftWheelMesh: {fileID: 142794}
+  rearRightWheelMesh: {fileID: 148564}
   charmsToSearch: []
   charmsFound: 0
   wrongCharms: 0
@@ -1928,7 +1932,67 @@ MonoBehaviour:
   wheelRPM: 0
   floorSensor: {fileID: 438406}
   gui: {fileID: 11421418}
-  body: {fileID: 11459790}
+  body: {fileID: 11477834}
+--- !u!114 &11477834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b945f9aa6e0d3de46ab1fabcf3b510b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DontUseTag: 0
+  Radius: 10
+  CubeRadius: {x: 0, y: 0, z: 0}
+  UseCubeRadius: 0
+  ForceVector: {x: 0, y: 1, z: 0}
+  UseForceVector: 0
+  Force: 30
+  FrameBudget: 15
+  TargetFragments: 30
+  DeactivateOptions: 0
+  DeactivateTimeout: 10
+  FadeoutOptions: 0
+  MeshColliders: 0
+  ExplodeSelf: 1
+  DisableRadiusScan: 0
+  HideSelf: 1
+  DestroyOriginalObject: 0
+  ExplodeFragments: 1
+  UniformFragmentDistribution: 0
+  SplitMeshIslands: 0
+  AllowOpenMeshCutting: 0
+  FragmentPoolSize: 200
+  FragmentPrefab: {fileID: 0}
+  Use2DCollision: 0
+  SFXOptions:
+    ExplosionSoundClip: {fileID: 0}
+    FragmentSoundClip: {fileID: 0}
+    FragmentEmitter: {fileID: 0}
+    HitSoundTimeout: 0.3
+    EmitersMax: 1000
+    ParticleTimeout: -1
+  FragmentOptions:
+    FreezePositionX: 0
+    FreezePositionY: 0
+    FreezePositionZ: 0
+    FreezeRotationX: 0
+    FreezeRotationY: 0
+    FreezeRotationZ: 0
+    Layer: Default
+    MaxVelocity: 100
+    InheritParentPhysicsProperty: 1
+    Mass: 20
+    UseGravity: 1
+    DisableColliders: 0
+    AngularVelocity: 1
+    MaxAngularVelocity: 7
+    AngularVelocityVector: {x: 0, y: 1, z: 0}
+    RandomAngularVelocityVector: 1
+    FragmentMaterial: {fileID: 0}
 --- !u!124 &12471664
 Behaviour:
   m_ObjectHideFlags: 1
@@ -1945,13 +2009,13 @@ WheelCollider:
   m_Center: {x: 0, y: 0.13, z: 0}
   m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 10000
+    spring: 1000
     damper: 400
     targetPosition: 0.5
-  m_SuspensionDistance: 0.25
+  m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
   m_Mass: 1
-  m_WheelDampingRate: 0.5
+  m_WheelDampingRate: 10
   m_ForwardFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 10
@@ -1974,13 +2038,13 @@ WheelCollider:
   m_Center: {x: 0, y: 0.13, z: 0}
   m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 10000
+    spring: 1000
     damper: 400
     targetPosition: 0.5
-  m_SuspensionDistance: 0.25
+  m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
   m_Mass: 1
-  m_WheelDampingRate: 0.5
+  m_WheelDampingRate: 10
   m_ForwardFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 10
@@ -2003,13 +2067,13 @@ WheelCollider:
   m_Center: {x: 0, y: 0.13, z: 0}
   m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 10000
+    spring: 1000
     damper: 400
     targetPosition: 0.5
-  m_SuspensionDistance: 0.25
+  m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
   m_Mass: 1
-  m_WheelDampingRate: 0.5
+  m_WheelDampingRate: 10
   m_ForwardFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 10
@@ -2032,13 +2096,13 @@ WheelCollider:
   m_Center: {x: 0, y: 0.13, z: 0}
   m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 10000
+    spring: 1000
     damper: 400
     targetPosition: 0.5
-  m_SuspensionDistance: 0.25
+  m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
   m_Mass: 1
-  m_WheelDampingRate: 0.5
+  m_WheelDampingRate: 10
   m_ForwardFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 10

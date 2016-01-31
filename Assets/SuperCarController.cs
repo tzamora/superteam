@@ -14,6 +14,8 @@ public class SuperCarController : MonoBehaviour {
 
 	public GameObject trail;
 
+	public Camera carCamera;
+
 	public float motorForce;
 	public float motorForceMultiplier;
 	public float motorForceMultiplierVariable=3f;
@@ -37,6 +39,9 @@ public class SuperCarController : MonoBehaviour {
 
 	public GameObject frontLeftWheelMesh;
 	public GameObject frontRightWheelMesh;
+
+	public GameObject rearLeftWheelMesh;
+	public GameObject rearRightWheelMesh;
 
 	public List<RitualCharmController> charmsToSearch;
 	public int charmsFound = 0;
@@ -145,6 +150,10 @@ public class SuperCarController : MonoBehaviour {
 		frontLeftWheelMesh.transform.Rotate (new Vector3 (-1f * motorTorque * Time.deltaTime, 0f, 0f));
 
 		frontRightWheelMesh.transform.Rotate (new Vector3 (-1f * motorTorque * Time.deltaTime, 0f, 0f));
+
+		rearLeftWheelMesh.transform.Rotate (new Vector3 (-1f * motorTorque * Time.deltaTime, 0f, 0f));
+
+		rearRightWheelMesh.transform.Rotate (new Vector3 (-1f * motorTorque * Time.deltaTime, 0f, 0f));
 
 		//print ("RPM " + rearLeftWheel.rpm);
 
