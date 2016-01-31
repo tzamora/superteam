@@ -23,11 +23,20 @@ public class RitualCharmController : MonoBehaviour {
 
 		SuperCarController superCar = other.GetComponent<SuperCarController> ();
 
+
+
 		if(superCar != null){
 
-			if(superCar.charmsToSearch.Contains(this.charmType))
+			if (superCar.charmsToSearch.Contains (this.charmType)) {
+				SoundManager.Get.PlayClip (itemPickupSound, false);
+				superCar.addCharm(this.charmType);
+			} else {
+			
+				// cagar al jugador
 
-			SoundManager.Get.PlayClip (itemPickupSound, false);
+			}
+
+
 
 			Destroy(this.gameObject);
 		}

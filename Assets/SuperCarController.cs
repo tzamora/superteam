@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using matnesis.TeaTime;
+using UnityEngine.SceneManagement;
 
 public class SuperCarController : MonoBehaviour {
 
@@ -40,6 +41,8 @@ public class SuperCarController : MonoBehaviour {
 	public float wheelRPM = 0f;
 
 	public Transform floorSensor;
+
+	public PlayerGUIController gui;
 
 	// Use this for initialization
 	void Start () {
@@ -187,5 +190,28 @@ public class SuperCarController : MonoBehaviour {
 			}
 
 		});
+	}
+
+	public void addCharm(CharmTypes charmType){
+
+		this.charmsToSearch.Remove (charmType);
+
+		if (charmsToSearch.Count <= 0) {
+
+			// show text
+
+			// show ending (which is a new scene with the winner elevating to the sky going to the super charm)
+
+			// invoke the ending
+			SceneManager.LoadScene ("main-title");
+
+			//
+
+		} else {
+		
+
+
+		}
+
 	}
 }
