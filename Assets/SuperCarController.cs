@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using matnesis.TeaTime;
 
 public class SuperCarController : MonoBehaviour {
@@ -18,7 +19,6 @@ public class SuperCarController : MonoBehaviour {
 
 	public float jumpForce;
 
-	public AudioClip itemPickupSound;
 	public AudioClip jumpSound;
 	public AudioClip motorSound;
 
@@ -32,6 +32,8 @@ public class SuperCarController : MonoBehaviour {
 
 	public GameObject frontLeftWheelMesh;
 	public GameObject frontRightWheelMesh;
+
+	public List<string> charmsToSearch;
 
 	public float brakeTorque =  0;
 
@@ -184,28 +186,6 @@ public class SuperCarController : MonoBehaviour {
 				});
 			}
 
-//			if (gamepad.actions.Dash.IsPressed) {
-//				
-//				this.motorForceMultiplier = 3;
-//				trail.SetActive(true);
-//			}else{
-//				this.motorForceMultiplier = 1;
-//				trail.SetActive(false);
-//			}
-
-
 		});
-	}
-		
-	void OnTriggerEnter(Collider other) {
-	
-		RitualCharmController ritualCharm = other.GetComponent<RitualCharmController> ();
-
-		if(ritualCharm != null){
-
-			SoundManager.Get.PlayClip (itemPickupSound, false);
-
-			Destroy(ritualCharm);
-		}
 	}
 }
