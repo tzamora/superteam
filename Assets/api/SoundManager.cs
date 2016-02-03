@@ -168,6 +168,15 @@ public class SoundManager : MonoBehaviour
 			}
 		}
 	}
+
+	public void ChangePitch(AudioClip clip, float pitch){
+
+		foreach (AudioSource s in sources) {
+			if (s.clip == clip && s.isPlaying) {
+				s.pitch = pitch;
+			}
+		}
+	}
 	
 	/// <summary>
 	/// Stops all channels playing the given clip.
@@ -297,6 +306,8 @@ public class SoundManager : MonoBehaviour
 	}
 	
 	void Update() {
+		if (transform == null)
+			return;
 		transform.position = cam.position;
 		for (int i = 0; i < sources.Length; i++) {
 			sources[i].volume = Mathf.Lerp(oldVolume[i], newVolume[i], Mathf.Min(1.0f, (Time.time - transitionStart[i]) / transitionTime[i]));

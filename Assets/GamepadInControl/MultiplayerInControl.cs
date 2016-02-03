@@ -98,6 +98,43 @@ public class MultiplayerInControl : MonoBehaviour
 			playersWithoutDevice[i].SetInputDevice(freeDevices[i], i);
 		}
 
+		// now reset the cameras
+
+		/// set the camera rect
+		List<GamepadInControl> cars = FindObjectsOfType<GamepadInControl>().ToList();
+
+		// if we have one player the rect should be 
+
+		switch (players.Count) {
+		case 1:
+			cars [0].GetComponent<SuperCarController> ().carCamera.rect = new Rect (0f,0f,1f,1f);
+			break;
+		case 2:
+			cars [0].GetComponent<SuperCarController> ().carCamera.rect = new Rect (0f,0f,1f,0.5f);
+			cars [1].GetComponent<SuperCarController> ().carCamera.rect = new Rect (0f,0.5f,1f,0.5f);
+			break;
+		case 3:
+			cars [0].GetComponent<SuperCarController> ().carCamera.rect = new Rect (0f,.5f,.5f,.5f);
+			cars [1].GetComponent<SuperCarController> ().carCamera.rect = new Rect (.5f,.5f,.5f,.5f);
+			cars [2].GetComponent<SuperCarController> ().carCamera.rect = new Rect (0f,0f,.5f,.5f);
+			break;
+		case 4:
+			cars [0].GetComponent<SuperCarController> ().carCamera.rect = new Rect (0f,.5f,.5f,.5f);
+			cars [1].GetComponent<SuperCarController> ().carCamera.rect = new Rect (.5f,.5f,.5f,.5f);
+			cars [2].GetComponent<SuperCarController> ().carCamera.rect = new Rect (0f,0f,.5f,.5f);
+			cars [3].GetComponent<SuperCarController> ().carCamera.rect = new Rect (.5f,0f,.5f,.5f);
+			break;
+		}
+
+
+//		foreach(GamepadInControl player in cars){
+//
+//			// get the car
+//			SuperCarController car = player.GetComponent<SuperCarController>();
+//
+//			//car.carCamera
+//
+//		}
 
 		// Focus lions playing
 		if (SuperTeamGameContext.mainCamera != null)
